@@ -1,5 +1,15 @@
 // FOR EACH //
-Array.prototype.myEach = function() {
+//here, callbackFn is a placeholder for the function that is applied to each element when myEach is called
+//when myEach is called, the callback function will be applied to each(valid) element 
+Array.prototype.myEach = function(callbackFn) {
+    for(let i = 0; i < this.length; i++){
+        if(this[i] === undefined) continue; //checks if element is valid
+        //apply callback function. include all possible inputs:
+        //element
+        //element, index
+        //element, index, array
+        callbackFn(this[i], i, this)        
+    }
 
 };
 
@@ -58,3 +68,11 @@ Object.grabValues = function() {
 
 };
 
+/////////////TESTING////////////////////
+const arr = [2, 4, 6, 8]
+
+console.log("ForEach:")
+arr.forEach(x => console.log(x))
+
+console.log("myEach:")
+arr.myEach(x => console.log(x))
