@@ -13,9 +13,17 @@ Array.prototype.myEach = function(callbackFn) {
 
 };
 
-// MAP //
-Array.prototype.myMap = function() {
+// MAP: takes array, apply callback to elements, return new elements in new array //
+Array.prototype.myMap = function(callbackFn) {
+    var returnArr = []
 
+    for(let i = 0; i < this.length; i++){
+        if(this[i] === undefined) continue; //checks if element is valid
+
+        //apply callback to element, store element in return
+        returnArr[i] = callbackFn(this[i], i, this)
+    }
+    return returnArr
 };
 
 // FILTER //
@@ -76,3 +84,10 @@ arr.forEach(x => console.log(x))
 
 console.log("myEach:")
 arr.myEach(x => console.log(x))
+
+console.log("Map")
+console.log(arr.map(x => x * 2))
+
+console.log("myMap")
+console.log(arr.myMap(x => x * 2))
+
