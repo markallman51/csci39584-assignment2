@@ -26,8 +26,22 @@ Array.prototype.myMap = function(callbackFn) {
     return returnArr
 };
 
-// FILTER //
-Array.prototype.myFilter = function() {
+// FILTER: takes array, returns array of elements that pass thru callback function //
+Array.prototype.myFilter = function(callbackFn) {
+    var returnArr = []
+    var count = 0
+
+    for(let i = 0; i < this.length; i++){
+        if(this[i] === undefined) continue; //checks if element is valid
+
+        //apply callback to element, store element in return
+        if(callbackFn(this[i], i, this)){
+            returnArr[count] = this[i]
+            count++
+        }
+
+    }
+    return returnArr
 
 };
 
@@ -91,3 +105,8 @@ console.log(arr.map(x => x * 2))
 console.log("myMap")
 console.log(arr.myMap(x => x * 2))
 
+console.log("Filter")
+console.log(arr.filter(x => x > 4))
+
+console.log("myFilter")
+console.log(arr.myFilter(x => x > 4))
