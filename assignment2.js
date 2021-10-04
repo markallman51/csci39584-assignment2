@@ -45,8 +45,15 @@ Array.prototype.myFilter = function(callbackFn) {
 
 };
 
-// SOME //
-Array.prototype.mySome = function() {
+// SOME: return true if at least one element in array passes callback //
+Array.prototype.mySome = function(callbackFn) {
+    for(let i = 0; i < this.length; i++){
+        if(this[i] === undefined) continue
+
+        if(callbackFn(this[i], i, this))
+            return true
+    }
+    return false
 
 };
 
@@ -91,22 +98,28 @@ Object.grabValues = function() {
 };
 
 /////////////TESTING////////////////////
-const arr = [2, 4, 6, 8]
+const arr = [2, 4, 6, 8, 17, 49, 64]
 
-console.log("ForEach:")
-arr.forEach(x => console.log(x))
+// console.log("ForEach:")
+// arr.forEach(x => console.log(x))
 
-console.log("myEach:")
-arr.myEach(x => console.log(x))
+// console.log("myEach:")
+// arr.myEach(x => console.log(x))
 
-console.log("Map")
-console.log(arr.map(x => x * 2))
+// console.log("Map")
+// console.log(arr.map(x => x * 2))
 
-console.log("myMap")
-console.log(arr.myMap(x => x * 2))
+// console.log("myMap")
+// console.log(arr.myMap(x => x * 2))
 
-console.log("Filter")
-console.log(arr.filter(x => x > 4))
+// console.log("Filter")
+// console.log(arr.filter(x => x > 4))
 
-console.log("myFilter")
-console.log(arr.myFilter(x => x > 4))
+// console.log("myFilter")
+// console.log(arr.myFilter(x => x > 4))
+
+console.log("Some")
+console.log(arr.some(x => x %2 === 0))
+
+console.log("mySome")
+console.log(arr.mySome(x => x %2 === 0))
