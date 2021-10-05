@@ -132,8 +132,20 @@ Array.prototype.myPush = function(...args) {
     }
 };
 
-// LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
+// LASTINDEXOF: returns the last index where a value was found //
+Array.prototype.myLastIndexOf = function(value, index) {
+    var count = 0
+
+    //if a starting index is given, set counter to starting index
+    if(!(index === undefined))
+        count = index
+    
+    for(let i = count; i < this.length; i++){
+        if(this[i] === value) return i
+    }
+
+    return -1
+
 
 };
 
@@ -198,11 +210,11 @@ const arr = [2, 4, 6, 8]
 // console.log("myIndexOf")
 // console.log(arr.myIndexOf(8, 2))
 
-console.log('Push')
-console.log(arr.push([16, 32, 64]))
-console.log(arr)
+// console.log('Push')
+// console.log(arr.push([16, 32, 64]))
+// console.log(arr)
 
 
-console.log('Push')
-console.log(arr.push(5))
-console.log(arr)
+// console.log('Push')
+// console.log(arr.push(5))
+// console.log(arr)
