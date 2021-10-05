@@ -156,8 +156,13 @@ Array.prototype.myLastIndexOf = function(value, index) {
 
 // KEYS: returns array of object keys in order //
 Object.grabKeys = function(obj) {
-    
+    var keys = []
 
+    for (const property in obj){
+        keys.push(property)
+    }
+
+    return keys
 };
 
 // VALUES //
@@ -225,9 +230,21 @@ const arr = [2, 4, 6, 8, 2, 8, 16, 16]
 // console.log(arr.push(5))
 // console.log(arr)
 
-//[2, 4, 6, 8, 2, 8, 16, 16]
-console.log("lastIndexOf")
-console.log(arr.lastIndexOf(7))
+// //[2, 4, 6, 8, 2, 8, 16, 16]
+// console.log("lastIndexOf")
+// console.log(arr.lastIndexOf(7))
 
-console.log("myLastIndexOf")
-console.log(arr.myLastIndexOf(7))
+// console.log("myLastIndexOf")
+// console.log(arr.myLastIndexOf(7))
+
+const object1 = {
+    a: 'somestring',
+    b: 42,
+    c: false
+  };
+
+console.log("Object.keys")
+console.log(Object.keys(object1));
+
+console.log("Object.grabKeys")
+console.log(Object.grabKeys(object1))
