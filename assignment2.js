@@ -87,7 +87,6 @@ Array.prototype.myReduce = function(callbackFn) {
 };
 
 // INCLUDES: returns true if array contains a given value//
-//...args is an array of all input values
 Array.prototype.myIncludes = function(value, index) {
     //console.log(index)
     var count = 0
@@ -122,9 +121,15 @@ Array.prototype.myIndexOf = function(value, index) {
 
 };
 
-// PUSH //
-Array.prototype.myPush = function() {
+// PUSH: adds elements to the end of an array //
+//...args is an array of all input values
+Array.prototype.myPush = function(...args) {
+    var argsIndex = 0
 
+    for(let i = this.length; i < this.length + args.length; i++){
+        this[i] = args[argsIndex]
+        argsIndex++
+    }
 };
 
 // LASTINDEXOF //
@@ -187,8 +192,17 @@ const arr = [2, 4, 6, 8]
 // console.log("myIncludes")
 // console.log(arr.myIncludes(4))
 
-console.log("IndexOf")
-console.log(arr.indexOf(8, 2))
+// console.log("IndexOf")
+// console.log(arr.indexOf(8, 2))
 
-console.log("myIndexOf")
-console.log(arr.myIndexOf(8, 2))
+// console.log("myIndexOf")
+// console.log(arr.myIndexOf(8, 2))
+
+console.log('Push')
+console.log(arr.push([16, 32, 64]))
+console.log(arr)
+
+
+console.log('Push')
+console.log(arr.push([96, 128, 256]))
+console.log(arr[5])
