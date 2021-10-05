@@ -166,8 +166,14 @@ Object.grabKeys = function(obj) {
 };
 
 // VALUES //
-Object.grabValues = function() {
+Object.grabValues = function(obj) {
+    var keys = []
 
+    for (const property in obj){
+        keys.push(obj[property])
+    }
+
+    return keys
 };
 
 /////////////TESTING////////////////////
@@ -243,8 +249,14 @@ const object1 = {
     c: false
   };
 
-console.log("Object.keys")
-console.log(Object.keys(object1));
+// console.log("Object.keys")
+// console.log(Object.keys(object1));
 
-console.log("Object.grabKeys")
-console.log(Object.grabKeys(object1))
+// console.log("Object.grabKeys")
+// console.log(Object.grabKeys(object1))
+
+console.log("Values")
+console.log(Object.values(object1));
+
+console.log("grabValues")
+console.log(Object.grabValues(object1))
