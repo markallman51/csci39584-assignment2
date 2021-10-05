@@ -59,7 +59,6 @@ Array.prototype.mySome = function(callbackFn) {
 
 // EVERY //
 Array.prototype.myEvery = function() {
-
 };
 
 // REDUCE //
@@ -118,8 +117,8 @@ const arr = [2, 4, 6, 8, 17, 49, 64]
 // console.log("myFilter")
 // console.log(arr.myFilter(x => x > 4))
 
-console.log("Some")
-console.log(arr.some(x => x %2 === 0))
+// console.log("Some")
+// console.log(arr.some(x => x %2 === 0))
 
-console.log("mySome")
-console.log(arr.mySome(x => x %2 === 0))
+// console.log("mySome")
+// console.log(arr.mySome(x => x %2 === 0))
