@@ -134,16 +134,21 @@ Array.prototype.myPush = function(...args) {
 
 // LASTINDEXOF: returns the last index where a value was found //
 Array.prototype.myLastIndexOf = function(value, index) {
-    var count = 0
+    var count = this.length - 1
 
     //if a starting index is given, set counter to starting index
     if(!(index === undefined))
         count = index
-    
-    for(let i = count; i < this.length; i++){
+
+    var last = 0
+
+    //[2, 4, 6, 8, 2, 8, 16, 16]
+    //array is searched backwards, counting down the index
+    for(let i = count; i > 0; i--){
+        
         if(this[i] === value) return i
     }
-
+    
     return -1
 
 
@@ -160,7 +165,7 @@ Object.grabValues = function() {
 };
 
 /////////////TESTING////////////////////
-const arr = [2, 4, 6, 8]
+const arr = [2, 4, 6, 8, 2, 8, 16, 16]
 
 // console.log("ForEach:")
 // arr.forEach(x => console.log(x))
@@ -218,3 +223,10 @@ const arr = [2, 4, 6, 8]
 // console.log('Push')
 // console.log(arr.push(5))
 // console.log(arr)
+
+//[2, 4, 6, 8, 2, 8, 16, 16]
+console.log("lastIndexOf")
+console.log(arr.lastIndexOf(7))
+
+console.log("myLastIndexOf")
+console.log(arr.myLastIndexOf(7))
