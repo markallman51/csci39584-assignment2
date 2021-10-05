@@ -204,5 +204,5 @@ console.log(arr)
 
 
 console.log('Push')
-console.log(arr.push([96, 128, 256]))
-console.log(arr[5])
+console.log(arr.push(5))
+console.log(arr)
