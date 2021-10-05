@@ -154,8 +154,9 @@ Array.prototype.myLastIndexOf = function(value, index) {
 
 };
 
-// KEYS //
-Object.grabKeys = function() {
+// KEYS: returns array of object keys in order //
+Object.grabKeys = function(obj) {
+    
 
 };
 
