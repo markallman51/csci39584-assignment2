@@ -86,8 +86,21 @@ Array.prototype.myReduce = function(callbackFn) {
     return x
 };
 
-// INCLUDES //
-Array.prototype.myIncludes = function() {
+// INCLUDES: returns true if array contains a given value//
+//...args is an array of all input values
+Array.prototype.myIncludes = function(value, index) {
+    //console.log(index)
+    var count = 0
+    if(!(index === undefined))
+        count = index
+    
+    //console.log(count)
+
+    for(let i = count; i < this.length; i++){
+        if(this[i] === undefined) continue
+        if(this[i] === value) return true
+    }
+    return false
 
 };
 
@@ -149,8 +162,14 @@ const arr = [2, 4, 6, 8]
 // console.log("myEvery")
 // console.log(arr.myEvery(x => x %2 ==0))
 
-console.log("Reduce")
-console.log(arr.reduce((x, y) => x - y))
+// console.log("Reduce")
+// console.log(arr.reduce((x, y) => x - y))
 
-console.log("myReduce")
-console.log(arr.myReduce((x, y) => x - y))
+// console.log("myReduce")
+// console.log(arr.myReduce((x, y) => x - y))
+
+console.log("Includes")
+console.log(arr.includes(4))
+
+console.log("myIncludes")
+console.log(arr.myIncludes(4))
