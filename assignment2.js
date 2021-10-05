@@ -57,13 +57,33 @@ Array.prototype.mySome = function(callbackFn) {
 
 };
 
-// EVERY //
-Array.prototype.myEvery = function() {
+// EVERY: return true if all elements pass callback //
+Array.prototype.myEvery = function(callbackFn) {
+    for(let i = 0; i < this.length; i++){
+        if(this[i] === undefined) continue
+
+        if(!callbackFn(this[i], i, this))
+            return false
+    }
+    return true
 };
 
-// REDUCE //
-Array.prototype.myReduce = function() {
+// REDUCE: takes array, applies function that combines all elements, returns single value //
+Array.prototype.myReduce = function(callbackFn) {
+    //initialize first array value separately
+    var x = this[0]
+    
+    //start loop with second array value
+    for(let i = 1; i < this.length; i++) 
+    {
+        if(this[i] === undefined) continue
 
+        //apply function to current value(stored in x) and next value. store result in x
+        //console.log(callbackFn(x, this[i]))
+        x = callbackFn(x, this[i])
+
+    }
+    return x
 };
 
 // INCLUDES //
@@ -97,7 +117,7 @@ Object.grabValues = function() {
 };
 
 /////////////TESTING////////////////////
-const arr = [2, 4, 6, 8, 17, 49, 64]
+const arr = [2, 4, 6, 8]
 
 // console.log("ForEach:")
 // arr.forEach(x => console.log(x))
@@ -122,3 +142,15 @@ const arr = [2, 4, 6, 8, 17, 49, 64]
 
 // console.log("mySome")
 // console.log(arr.mySome(x => x %2 === 0))
+
+// console.log("Every")
+// console.log(arr.every(x => x %2 ==0))
+
+// console.log("myEvery")
+// console.log(arr.myEvery(x => x %2 ==0))
+
+console.log("Reduce")
+console.log(arr.reduce((x, y) => x - y))
+
+console.log("myReduce")
+console.log(arr.myReduce((x, y) => x - y))
