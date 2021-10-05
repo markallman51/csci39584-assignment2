@@ -91,6 +91,8 @@ Array.prototype.myReduce = function(callbackFn) {
 Array.prototype.myIncludes = function(value, index) {
     //console.log(index)
     var count = 0
+
+    //if a starting index is given, set counter to starting index
     if(!(index === undefined))
         count = index
     
@@ -104,8 +106,19 @@ Array.prototype.myIncludes = function(value, index) {
 
 };
 
-// INDEXOF //
-Array.prototype.myIndexOf = function() {
+// INDEXOF: returns index of given value in array. -1 if not in array //
+Array.prototype.myIndexOf = function(value, index) {
+    var count = 0
+
+    //if a starting index is given, set counter to starting index
+    if(!(index === undefined))
+        count = index
+    
+    for(let i = count; i < this.length; i++){
+        if(this[i] === value) return i
+    }
+
+    return -1
 
 };
 
@@ -168,8 +181,14 @@ const arr = [2, 4, 6, 8]
 // console.log("myReduce")
 // console.log(arr.myReduce((x, y) => x - y))
 
-console.log("Includes")
-console.log(arr.includes(4))
+// console.log("Includes")
+// console.log(arr.includes(4))
 
-console.log("myIncludes")
-console.log(arr.myIncludes(4))
+// console.log("myIncludes")
+// console.log(arr.myIncludes(4))
+
+console.log("IndexOf")
+console.log(arr.indexOf(8, 2))
+
+console.log("myIndexOf")
+console.log(arr.myIndexOf(8, 2))
